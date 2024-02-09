@@ -93,29 +93,41 @@ Description : Flex Layouts.
 			flex: 0 0 100%;
 		}
         .row { 
-			border: 1px sienna;/*I need some CSS codes.*/
+			border: 1px sienna;
 			display: flex;
 			flex-wrap: wrap;
 		}
-		
         
 
         @media screen and (min-width: 769px) {
-            .menu { width: 150px; }     
+            .menu { width: 150px; }
+			
+			.main{
+				display: flex;
+				flex-wrap: wrap;
+			}
 			.large { 
 				flex: 0 0 100%;/*Set maximum width for large item.*/
 			}
+			.row{
+				display: flex;
+				flex-wrap: wrap;
+			}
 			.row .medium { 
 				flex:70%;/*Set 70% width for medium item.*/
-				float: right;
+				/*float: right;*/
 			}
 			.row .small { 
 				flex:30% ;/*Set 30% width for small item.*/
-				float: left;
+				/*float: left;*/
 			}       
         }
 
         @media screen and (max-width: 768px) {
+
+			.main{
+				display: block;
+			}
 			.body { 
 				margin: 0; /* Reset margin */
     			padding: 0; /* Reset padding */
@@ -124,7 +136,7 @@ Description : Flex Layouts.
             .menu ul { 
 				display: flex; /* Use flexbox for menu items */
         		flex-direction: row; /* Arrange items horizontally */
-        		justify-content: space-around; /* Distribute items evenly *//*I need some CSS codes.*/
+        		justify-content: space-around; 
 			 }            
         
         }
@@ -135,6 +147,10 @@ Description : Flex Layouts.
 				flex: 0 0 100%; /* Medium and small items take full width */
         		margin-right: 0; /* Remove margin for small screens */
 			 }
+        }
+		.medium, .small {
+            flex-grow: 1; /* Adjusted width to 50% with margin */
+            flex-basis: auto; /* Added margin between medium and small items */
         }
     </style>
 </head>
